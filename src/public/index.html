@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Carros</title>
+    <script
+      src="https://carimagesapi.com/assets/js/carimages.js"
+      data-api-key="ci_b5e5e909a3a6708fbf1266594266c0c478a507d51b2b522ad3ce9eac"
+      async
+    ></script>
+
+
+  
+    <link rel="stylesheet" href="style.css"></link>
+
+
+
+
+    <!--
+      Tailwind CSS é uma biblioteca de estilos pronta.
+      Ela permite usar classes no HTML, como "flex", "p-4" e "bg-indigo-600",
+      para organizar elementos, criar espaços e escolher cores sem escrever CSS separado.
+      Este script carrega o Tailwind pela internet para que essas classes funcionem.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+  </head>
+  <body class="">
+    <section class="flex justify-center gap-10 h-10 mt-12">
+     
+      <div id="status-msg"></div>
+
+      <button
+      onclick="cadastrarCarro()"
+      class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+    >
+      Cadastrar Carro
+    </button>
+
+      <button
+        onclick="calcularDistancia()"
+        class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        Calcular distância
+      </button>
+
+      <button onclick="listarCarros()">Listar Carros</button>
+      <div id="valorDistancia"></div>
+    </section>
+    <br><br>
+    
+    
+      <p class=" font-roboto flex items-center justify-center">Carros Cadastrados</p>
+
+      <div class=" flex-col w-[80%] h-full text-gray-700 bg-white shadow-md rounded-xl bg-clip-border ">
+
+      <table id="listaCarros" class="w-full text-left table-auto min-w-max ">
+        <thead>
+        <tr>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50"><p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">Nome</p></th>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50"><p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">Ano</p></th>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50"><p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">Kms por Litro</p></th>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50"><p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">Imagem</p></th>
+        </tr>
+      </thead>
+
+      <tbody id="corpoTabela"></tbody> 
+    </table>
+      
+    
+    </div>
+    <br />
+
+    <div>
+      <!--<button
+        onclick="removerCarro()"
+        class="flex justify-center items-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        Remover Carro
+      </button> -->
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

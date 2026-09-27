@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar Carro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        }); // Função para adicionar o elemento header à página
+    </script>
+    <div id="header-placeholder"></div>
+
+    <section class="w-full max-w-[800px] mt-20 py-0 px-6 ml-20">
+      <div>
+        <p class="font-montserrat">Cadastrar Carro</p>
+      </div>
+      <br /><br />
+
+      <form id="form">
+        <div class="grid gap-6 mb-6 md:grid-cols-1 m-auto inter">
+          <div>
+            <label for="name" class="block mb-2.5 text-sm font-medium "
+              >Nome</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+              placeholder="Gol"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="year"
+              class="block mb-2.5 text-sm font-medium text-heading"
+              >Ano</label
+            >
+            <input
+              type="number"
+              id="year"
+              name="year"
+              class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+              placeholder="2020"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="marca"
+              class="block mb-2.5 text-sm font-medium text-heading"
+              >Marca</label
+            >
+            <select id="marca" aria-label="Default select example"  name="marca">
+              <option value="" selected>Selecione a marca</option>
+              <option value="Volkswagen">Volkswagen</option>
+              <option value="Chevrolet">Chevrolet</option>
+              <option value="Hyundai">Hyundai</option>
+              <option value="Toyota">Toyota</option>
+              <option value="Fiat">Fiat</option>
+              <option value="Renault">Renault</option>
+            </select>
+          </div>
+          <div>
+            <label
+              for="km_litro"
+              class="block mb-2.5 text-sm font-medium text-heading"
+              >Kms por Litro</label
+            >
+            <input
+              type="number"
+              id="km_litro"
+              name="km_litro"
+              class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+              placeholder="10 km/litro"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="button">
+          <button
+            type="submit"
+            class="enviar inline-flex items-center justify-center rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-100 transition-all hover:bg-red-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onclick="cadastrarCarro()"
+            value="Enviar"
+          >
+            Salvar
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <script src="cadastro.js"></script>
+  </body>
+</html>

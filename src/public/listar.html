@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Carros Cadastrados</title>
+    <!--
+      Tailwind CSS é uma biblioteca de estilos pronta.
+      Ela permite usar classes no HTML, como "flex", "p-4" e "bg-indigo-600",
+      para organizar elementos, criar espaços e escolher cores sem escrever CSS separado.
+      Este script carrega o Tailwind pela internet para que essas classes funcionem.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://carimagesapi.com/assets/js/carimages.js"
+      data-api-key="ci_b5e5e909a3a6708fbf1266594266c0c478a507d51b2b522ad3ce9eac"
+      async
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="ml-10 mr-10 border-l-3">
+
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        }); // Função para adicionar o elemento header à página
+    </script>
+    <div id="header-placeholder"></div>
+    <!--
+      Área que organiza os botões de navegação.
+
+      flex: coloca os botões lado a lado.
+      flex-wrap: se faltar espaço na tela, permite que um botão passe para a linha de baixo.
+      justify-center: deixa os botões centralizados por padrão (bom para telas pequenas).
+      gap-3: cria um espaçamento igual entre os dois botões.
+      border-b border-slate-200: adiciona uma linha cinza abaixo dos botões.
+      py-5: cria espaço acima e abaixo da área dos botões.
+      sm:justify-end: em telas a partir de 640 pixels, move os botões para a direita.
+    
+    <section class="flex flex-wrap justify-center gap-3 py-5 sm:justify-end">
+      <button
+        class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        <a href="cadastro.html">Cadastrar Carro</a>
+      </button>
+      <button
+        class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        <a href="calcularDistancia.html">Calcular distância </a>
+      </button>
+    </section>-->
+
+    
+
+      
+  <!-- 
+    <script>
+      fetch("sidebar.html")
+        .then((response1) => response1.text())
+        .then((data1) => {
+          document.getElementById("default-sidebar").innerHTML = data1;
+        }); // Função para adicionar o elemento header à página
+    </script>-->
+<br>
+    <section class="flex justify-center gap-10 h-10 mt-12 ml-5">
+      <div id="valorDistancia"></div>
+    </section>
+    <table id="listaCarros" class="w-full text-left table-auto min-w-max">
+      <thead>
+        <tr>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+            <p
+              class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+            >
+              Nome
+            </p>
+          </th>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+            <p
+              class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+            >
+              Ano
+            </p>
+          </th>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+            <p
+              class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+            >
+              Marca
+            </p>
+          </th>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+            <p
+              class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+            >
+              Kms por Litro
+            </p>
+          </th>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+            <p
+              class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+            >
+              Imagem
+            </p>
+          </th>
+          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+            <p
+              class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
+            >
+              Ação
+            </p>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody id="corpoTabela"></tbody>
+    </table>
+
+    <script src="listar.js"></script>
+  </body>
+</html>

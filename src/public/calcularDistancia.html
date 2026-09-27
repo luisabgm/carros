@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcular Distância</title>
+    <!--
+      Tailwind CSS é uma biblioteca de estilos pronta.
+      Ela permite usar classes no HTML, como "flex", "p-4" e "bg-indigo-600",
+      para organizar elementos, criar espaços e escolher cores sem escrever CSS separado.
+      Este script carrega o Tailwind pela internet para que essas classes funcionem.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        }); // Função para adicionar o elemento header à página
+    </script>
+    <div id="header-placeholder"></div>
+
+    <section class="w-full max-w-[800px] mt-20 py-0 px-6 ml-20">
+      <div class="grid gap-6 mb-6 md:grid-cols m-auto">
+        <div>
+          <label
+            for="marca"
+            class="block mb-2.5 text-sm font-medium text-heading"
+            >Carro</label
+          >
+          <select id="form-select-distance" aria-label="Default select example">
+            <option value="" selected>Selecione o modelo</option>
+            
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="name"
+            class="block mb-2.5 text-sm font-medium text-heading"
+            >Litros no Tanque</label
+          >
+          <input
+            type="text"
+            id="litros_tanque"
+            class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+            placeholder="30 L"
+            required
+          />
+          <br>
+
+          <label
+            for="velocidade"
+            class="block mb-2.5 text-sm font-medium text-heading"
+            >Velocidade</label
+          >
+          <input
+            type="number"
+            id="velocidade"
+            class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+            placeholder="Digite a velocidade média de viagem"
+            required
+          />
+
+          <br /><br />
+
+          <button
+            onclick="calcularDistancia()"
+            class="inline-flex items-center justify-center rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-100 transition-all hover:bg-red-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            Calcular distância
+          </button>
+
+          <!--
+            Este espaço recebe a resposta do cálculo feita no arquivo distancia.js.
+            hidden: deixa a caixa invisível enquanto não existe resultado.
+            mt-6: cria uma distância agradável entre o botão e a mensagem.
+            rounded-xl, border, bg-indigo-50 e shadow-sm: seguem o visual suave
+            dos botões azuis usados na página.
+            aria-live="polite": informa leitores de tela quando o texto mudar.
+          -->
+          <div
+            id="valorDistancia"
+            class="hidden mt-6 rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-3 text-sm font-medium text-indigo-900 shadow-sm"
+            aria-live="polite"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <script src="distancia.js"></script>
+  </body>
+</html>
