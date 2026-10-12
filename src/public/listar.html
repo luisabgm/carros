@@ -4,12 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Carros Cadastrados</title>
-    <!--
-      Tailwind CSS é uma biblioteca de estilos pronta.
-      Ela permite usar classes no HTML, como "flex", "p-4" e "bg-indigo-600",
-      para organizar elementos, criar espaços e escolher cores sem escrever CSS separado.
-      Este script carrega o Tailwind pela internet para que essas classes funcionem.
-    -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       src="https://carimagesapi.com/assets/js/carimages.js"
@@ -20,7 +15,6 @@
   </head>
 
   <body class="ml-10 mr-10 border-l-3">
-
     <script>
       fetch("header.html")
         .then((response) => response.text())
@@ -29,42 +23,43 @@
         }); // Função para adicionar o elemento header à página
     </script>
     <div id="header-placeholder"></div>
-    <!--
-      Área que organiza os botões de navegação.
 
-      flex: coloca os botões lado a lado.
-      flex-wrap: se faltar espaço na tela, permite que um botão passe para a linha de baixo.
-      justify-center: deixa os botões centralizados por padrão (bom para telas pequenas).
-      gap-3: cria um espaçamento igual entre os dois botões.
-      border-b border-slate-200: adiciona uma linha cinza abaixo dos botões.
-      py-5: cria espaço acima e abaixo da área dos botões.
-      sm:justify-end: em telas a partir de 640 pixels, move os botões para a direita.
-    
-    <section class="flex flex-wrap justify-center gap-3 py-5 sm:justify-end">
-      <button
-        class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-      >
-        <a href="cadastro.html">Cadastrar Carro</a>
-      </button>
-      <button
-        class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-      >
-        <a href="calcularDistancia.html">Calcular distância </a>
-      </button>
-    </section>-->
+    <section class="mt-20 rounded-xl border border-black/[0.07] bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,.02)] sm:p-5; ">
 
-    
+      <form method="GET" class="form grid gap-4 sm:grid-cols-4 lg:grid-cols-12; ">
+        <label for="nameFilter" class="block mb-2.5 text-sm font-medium text-heading lg:col-span-3; ">Nome</label>
+        <input
+          type="text"
+          id="nameFilter"
+          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Informe o nome do carro"
+        />
+      </div>
+
+      <div>
+        <label for="yearFilter" class="block mb-2.5 text-sm font-medium text-heading ">Ano</label>
+        <select id="yearFilter">
+          <option value="" selected> Selecione o ano</option>
+          
+
+        </select>
+      </div>
 
       
-  <!-- 
-    <script>
-      fetch("sidebar.html")
-        .then((response1) => response1.text())
-        .then((data1) => {
-          document.getElementById("default-sidebar").innerHTML = data1;
-        }); // Função para adicionar o elemento header à página
-    </script>-->
-<br>
+      <div>
+        <label for="brandFilter" class="block mb-2.5 text-sm font-medium text-heading">Marca</label>
+        <select id="brandFilter">
+          <option value="" selected> Selecione a marca</option>
+          
+
+        </select>
+        <button type="submit" class=" h-11 self-end rounded-md bg-zinc-900 px-5 text-sm font-medium text-white transition hover:bg-black sm:col-span-1 lg:col-span-1"
+        onclick="filtrarCarro()"
+        value="Enviar">Aplicar filtros</button>
+      </form>
+    </section>
+
+    <br />
     <section class="flex justify-center gap-10 h-10 mt-12 ml-5">
       <div id="valorDistancia"></div>
     </section>
