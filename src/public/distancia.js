@@ -18,7 +18,8 @@ buscarCarros();
 
 async function mostrarResultado(mensagem) {
   // textContent escreve o texto dentro da caixa de resultado
-  resultado.textContent = mensagem;
+  resultado.innerHTML = mensagem;
+  
 
   // A classe "hidden" deixa o elemento invisível.
   // Ao removê-la, a caixa aparece na página.
@@ -26,7 +27,7 @@ async function mostrarResultado(mensagem) {
 }
 
 async function Api() {
-  const velocidade = document.getElementById("velocidade").value;
+  
 
   let carId = document.getElementById("form-select-distance").value;
 
@@ -62,13 +63,12 @@ async function Api() {
   try {
     console.log("modelo:", carId);
     console.log("litros:", litros);
-    console.log("velocidade:", velocidade);
     resposta = await fetch("http://localhost:3000/src/api/distancia", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ carId, litros, velocidade }),
+      body: JSON.stringify({ carId, litros }),
     });
 
     
@@ -94,12 +94,31 @@ async function Api() {
 
 let distancia = consumo * dados.litros;*/
 
-if(dados.distancia == null){
+if(dados.resultado.length == 0){
   mostrarResultado(`A distância desse carro não foi cadastrada`)
   return
 }
 
+
+
   mostrarResultado(
-    `A distância que pode ser percorrida é de ${dados.distancia} km.`
+     `Em uma velocidade média entre 40 e 60 km/h, a autonomia estimada é de ${dados.resultado[0]} km. <br><br> ` + 
+    `Em uma velocidade média entre 60 e 80 km/h, a autonomia estimada é de ${dados.resultado[1]} km. <br><br> ` + 
+     `Em uma velocidade média entre 80 e 100 km/h, a autonomia estimada é de ${dados.resultado[2]} km. <br><br> `+
+      `Em uma velocidade média entre 100 e 120 km/h, a autonomia estimada é de ${dados.resultado[3]} km. <br><br> `+
+       `Em uma velocidade média entre 120 e 140 km/h, a autonomia estimada é de ${dados.resultado[4]} km. <br><br> `+
+        `Para outras velocidades, a autonomia estimada é de ${dados.resultado[5]} km. <br> `
+        
+   
+   
+  
+   
+
+
+
+    
+
+
+    
   );
 }

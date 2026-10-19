@@ -24,46 +24,68 @@
     </script>
     <div id="header-placeholder"></div>
 
-    <section class="mt-20 rounded-xl border border-black/[0.07] bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,.02)] sm:p-5; ">
+    <section
+      class="h-20 mt-20  mx-auto rounded-xl border border-black/[0.07] bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,.02)] sm:p-5 flex items-center justify-center"
+    >
+      <form
+        method="GET"
+        class="items-center form grid gap-20 sm:grid-cols-4 lg:grid-cols-12;"
+      >
+        <div>
+          <label
+            for="nameFilter"
+            class="block mb-2.5 text-sm font-medium text-heading lg:col-span-3;"
+            >Nome</label
+          >
+          <input
+            type="text"
+            id="nameFilter"
+            class="h-8 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full shadow-xs placeholder:text-body"
+            placeholder="Informe o nome do carro"
+          />
+        </div>
 
-      <form method="GET" class="form grid gap-4 sm:grid-cols-4 lg:grid-cols-12; ">
-        <label for="nameFilter" class="block mb-2.5 text-sm font-medium text-heading lg:col-span-3; ">Nome</label>
-        <input
-          type="text"
-          id="nameFilter"
-          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-          placeholder="Informe o nome do carro"
-        />
-      </div>
+        <div>
+          <label
+            for="yearFilter"
+            class="block mb-2.5 text-sm font-medium text-heading"
+            >Ano</label
+          >
+          <select id="yearFilter">
+            <option value="" selected>Selecione o ano</option>
+          </select>
+        </div>
 
-      <div>
-        <label for="yearFilter" class="block mb-2.5 text-sm font-medium text-heading ">Ano</label>
-        <select id="yearFilter">
-          <option value="" selected> Selecione o ano</option>
-          
+        <div>
+          <label
+            for="brandFilter"
+            class="block mb-2.5 text-sm font-medium text-heading"
+            >Marca</label
+          >
 
-        </select>
-      </div>
+          <select id="brandFilter">
+            <option value="" selected>Selecione a marca</option>
+          </select>
+        </div>
 
-      
-      <div>
-        <label for="brandFilter" class="block mb-2.5 text-sm font-medium text-heading">Marca</label>
-        <select id="brandFilter">
-          <option value="" selected> Selecione a marca</option>
-          
-
-        </select>
-        <button type="submit" class=" h-11 self-end rounded-md bg-zinc-900 px-5 text-sm font-medium text-white transition hover:bg-black sm:col-span-1 lg:col-span-1"
-        onclick="filtrarCarro()"
-        value="Enviar">Aplicar filtros</button>
+        <div>
+          <button
+            type="submit"
+            class="h-11 rounded-md bg-zinc-900 px-5 text-sm font-medium text-white transition hover:bg-black sm:col-span-1 lg:col-span-1"
+            onclick="filtrarCarro()"
+            value="Enviar"
+          >
+            Aplicar filtros
+          </button>
+        </div>
       </form>
     </section>
 
     <br />
-    <section class="flex justify-center gap-10 h-10 mt-12 ml-5">
+    <section class="flex justify-center gap-10 h-10 mt-12 ml-5 items-center ">
       <div id="valorDistancia"></div>
     </section>
-    <table id="listaCarros" class="w-full text-left table-auto min-w-max">
+    <table id="listaCarros" class=" w-full mx-auto text-left max-w-6xl">
       <thead>
         <tr>
           <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
@@ -101,7 +123,7 @@
               Imagem
             </p>
           </th>
-          <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+          <th colspan="2" class="p-4 border-b border-blue-gray-100 bg-blue-gray-50 text-center">
             <p
               class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"
             >

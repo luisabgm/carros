@@ -37,7 +37,7 @@ function cadastrarCarro() {
       if (!resposta.ok){
         const dadosErro = await resposta.json();
   
-        alert(dadosErro.erro || "Ocorreu um erro ao salvar o carro")
+        alert(dadosErro.error || "Ocorreu um erro ao salvar o carro")
         formulario.reset()
       }
   
